@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Modern Login Page</title>
+</head>
+<style>
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background-color: #512da8;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.5em;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar {
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    background-color: #512da8;
+    color: white;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-title {
+    font-size: 1.5em;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #00ccff;
+}
+
+.login-container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background: white;
+    border-radius: 30px; /* Increased for a rounded look */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); /* Similar shadow for depth */
+    padding: 60px;
+    width: 90%;
+    max-width: 900px; /* Increased width */
+    min-height: 600px; /* Increased height */
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 3rem; /* Reduced margin to be more centered */
+}
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .login-box {
+        /* display: flex;
+        flex-direction: column;
+        gap: 20px; */
+        display: flex;
+        flex-direction: column;
+        gap: 25px; 
+    }
+
+    label {
+        /* font-weight: 800; */
+        font-size: 25px;
+        font-weight: bolder;
+        margin-bottom: 10px; 
+    }
+
+    input[type="file"] {
+        padding: 25px;
+    border: 2px solid #512da8;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: 900; /* Makes the file input text bolder */
+    font-size: 1.1em; /* Slightly larger font size */
+    color: #000000; /* Text color matching the border for a cohesive look */
+    background-color: #f7f7f7; /* Light background color for better contrast */
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    }
+
+    input[type="file"]:focus {
+        border-color: #512da8;
+        outline: none;
+    }
+
+    .select-container {
+        display: flex; /* Use Flexbox */
+        justify-content: center; /* Center horizontally */
+        width: 100%;
+        margin-bottom: 20px; /* Full width to allow centering */
+    }
+
+    select {
+        padding: 25px;
+    border: 2px solid #512da8;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23512da8" viewBox="0 0 16 16"><path d="M4.5 8l4 4 4-4h-8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+    font-size: 1.2em; 
+    margin-top: 20px;
+    }
+
+    select:focus {
+        border-color: #512da8;
+        outline: none;
+        box-shadow: 0 0 5px rgba(81, 45, 168, 0.5); /* Add a subtle shadow on focus */
+    }
+
+    button {
+        background-color: #512da8;
+        color: white;
+        padding: 25px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bolder;
+        width: 100%;
+        transition: background-color 0.3s, transform 0.3s;
+        margin-top: 9px;
+    }
+
+    button:hover {
+        background-color: #512da8;
+        transform: translateY(-2px);
+    }
+
+    button:active {
+        transform: translateY(1px);
+    }
+
+    @media (max-width: 600px) {
+        header {
+            font-size: 1.2em;
+        }
+    }
+
+</style>
+
+<body>
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <h1 class="navbar-title">बुलढाणा पोलीस</h1>
+            <nav class="navbar-links">
+                <a href="">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <div class="login-container">
+        <form class="login-box"  id="excelForm">
+            <div class="button-row">
+                <label for="uploadFirst">बंदोबस्त यादी निवडा:</label>
+                <input type="file" id="excel_file" name="uploadFirst" accept=".xlsx, .xls">
+                
+                <div class="select-container">
+                    <select id="button" name="options">
+                        <!-- <option value="" disabled selected>Select an Option</option> -->
+                        <option value="table_form_data_form_votting_booth.html" style="font-weight: bold;">मतदान केंद्र बंदोबस्त</option>
+                        <option value="table_form_data_form_building.html" style="font-weight: bold;">इमारत बंदोबस्त</option>
+                        <option value="table_form_data_form_100m.html" style="font-weight: bold;">१०० मी. बंदोबस्त </option>
+                    </select>
+                    
+                </div>
+            </div>
+            
+            <button type="button" id="nextBtn" >मतदान केंद्र बंदोबस्त</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('excel_file').addEventListener('change', (e) => {
+            document.getElementById('nextBtn').disabled = !e.target.files.length;
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            const file = document.getElementById('excel_file').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const excelData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+                    sessionStorage.setItem('excelData', JSON.stringify(excelData));
+                    
+                    // Navigate to the selected page if an option is chosen
+                    const selectedPage = document.getElementById('pageSelect').value;
+                    if (selectedPage) {
+                        window.location.href = selectedPage;
+                    } else {
+                        alert('Please select a page to navigate to.');
+                    }
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
+    </script>
+</body>
+</html>
+
+    
+</body>
+
+</html>
